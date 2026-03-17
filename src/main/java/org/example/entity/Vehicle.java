@@ -3,6 +3,7 @@ package org.example.entity;
 
 import org.example.engine.Intersection;
 import org.example.pattern.observer.Observer;
+import org.example.util.Logger;
 
 public abstract class Vehicle implements Observer, Runnable {
 
@@ -11,28 +12,31 @@ public abstract class Vehicle implements Observer, Runnable {
     protected Intersection intersection;
     protected volatile String trafficLightState = "RED";
 
+    private boolean wasStopped = false;
+
     public Vehicle(String id, int speed, Intersection intersection) {
         this.id = id;
         this.speed = speed;
         this.intersection = intersection;
     }
 
-    // Observer: nhận tín hiệu đèn
     @Override
     public void update(String state) {
         this.trafficLightState = state;
     }
 
-    // hành vi chung
     public void move() {
-        System.out.println(getName() + " đang di chuyển...");
+        Logger.log(getName() + " đang di chuyển...");
+        wasStopped = false;
     }
 
     public void stop() {
-        System.out.println(getName() + " đang dừng lại...");
+        if (!wasStopped) {
+            Logger.log(getName() + " đang dừng lại...");
+            wasStopped = true;
+        }
     }
 
-    // mỗi xe chạy như 1 thread
     @Override
     public void run() {
         while (true) {
@@ -50,10 +54,14 @@ public abstract class Vehicle implements Observer, Runnable {
 
                     System.out.println(getName() + " đã rời hệ thống");
 
-                    break; // 🔥 QUAN TRỌNG
+                    break; // 🔥 xe biến mất
 
                 } catch (RuntimeException e) {
-                    stop();
+
+                    // 🚑 xe cứu thương KHÔNG bị stop
+                    if (!(this instanceof PriorityVehicle)) {
+                        stop();
+                    }
                 }
 
             } catch (InterruptedException e) {
@@ -63,7 +71,6 @@ public abstract class Vehicle implements Observer, Runnable {
         }
     }
 
-    // logic quyết định đi/dừng
     protected boolean canGo() {
         return "GREEN".equals(trafficLightState);
     }

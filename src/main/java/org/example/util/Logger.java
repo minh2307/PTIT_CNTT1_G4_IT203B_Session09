@@ -4,6 +4,7 @@ package org.example.util;
 public class Logger {
 
     public static synchronized void log(String message) {
-        System.out.println(message);
+        long time = SimulationClock.getTime();
+        System.out.println("[Time: " + time + "s] " + message);
     }
 }
