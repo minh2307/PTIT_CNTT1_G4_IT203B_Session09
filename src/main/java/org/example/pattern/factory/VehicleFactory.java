@@ -4,7 +4,6 @@ import org.example.engine.Intersection;
 import org.example.entity.PriorityVehicle;
 import org.example.entity.StandardVehicle;
 import org.example.entity.Vehicle;
-
 import java.util.Random;
 
 public class VehicleFactory {
@@ -14,17 +13,50 @@ public class VehicleFactory {
 
     public static Vehicle createVehicle(Intersection intersection) {
 
-        int type = random.nextInt(2); // 0 hoặc 1
-        int speed = 1000 + random.nextInt(2000); // 1s - 3s
-
+        int chance = random.nextInt(100); // 0 -> 99
+        int speed;
         String id = String.valueOf(counter++);
 
-        if (type == 0) {
-            System.out.println("Tạo xe thường #" + id);
-            return new StandardVehicle(id, speed, intersection);
-        } else {
-            System.out.println("Tạo xe cứu thương #" + id);
+        // 🚑 30% xe cứu thương
+        if (chance < 30) {
+            speed = 500 + random.nextInt(500); // nhanh hơn
+            System.out.println("🚑 Tạo xe cứu thương #" + id);
             return new PriorityVehicle(id, speed, intersection);
+        }
+
+        // 🚗 70% còn lại là xe thường (chia loại)
+        int type = random.nextInt(3);
+
+        switch (type) {
+            case 0:
+                speed = 500 + random.nextInt(500); // xe máy nhanh
+                System.out.println("🏍️ Tạo xe máy #" + id);
+                return new StandardVehicle(id, speed, intersection) {
+                    @Override
+                    public String getName() {
+                        return "🏍️ Xe máy #" + id;
+                    }
+                };
+
+            case 1:
+                speed = 1000 + random.nextInt(1000); // ô tô trung bình
+                System.out.println("🚗 Tạo ô tô #" + id);
+                return new StandardVehicle(id, speed, intersection) {
+                    @Override
+                    public String getName() {
+                        return "🚗 Ô tô #" + id;
+                    }
+                };
+
+            default:
+                speed = 1500 + random.nextInt(1500); // xe tải chậm
+                System.out.println("🚛 Tạo xe tải #" + id);
+                return new StandardVehicle(id, speed, intersection) {
+                    @Override
+                    public String getName() {
+                        return "🚛 Xe tải #" + id;
+                    }
+                };
         }
     }
 }

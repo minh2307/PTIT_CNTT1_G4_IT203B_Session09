@@ -1,7 +1,7 @@
 package org.example;
 
 import org.example.engine.Intersection;
-import org.example.engine.SimulationEngine;
+import org.example.entity.PriorityVehicle;
 import org.example.entity.Vehicle;
 import org.example.pattern.factory.VehicleFactory;
 
@@ -12,74 +12,45 @@ public class Main {
 
     public static void main(String[] args) {
 
-        System.out.println("===== HỆ THỐNG MÔ PHỎNG GIAO THÔNG THÔNG MINH =====");
+        System.out.println("===== MÔ PHỎNG GIAO THÔNG =====");
 
-        // ===== KHỞI TẠO NGÃ TƯ =====
         Intersection intersection = new Intersection();
-
-        // ===== DANH SÁCH XE =====
         List<Vehicle> vehicles = new ArrayList<>();
+
+        int maxPriority = 2; // 👈 CHỈ cho tối đa 2 xe cứu thương
+        int currentPriority = 0;
 
         System.out.println("===== TẠO PHƯƠNG TIỆN =====");
 
-        // Tạo ngẫu nhiên nhiều xe
         for (int i = 0; i < 10; i++) {
+
             Vehicle v = VehicleFactory.createVehicle(intersection);
 
+            // kiểm soát số xe cứu thương
+            if (v instanceof PriorityVehicle) {
+                if (currentPriority >= maxPriority) {
+                    // nếu vượt quá → tạo lại xe thường
+                    v = VehicleFactory.createVehicle(intersection);
+
+                    // ép lại nếu vẫn ra xe cứu thương
+                    while (v instanceof PriorityVehicle) {
+                        v = VehicleFactory.createVehicle(intersection);
+                    }
+                } else {
+                    currentPriority++;
+                }
+            }
+
             vehicles.add(v);
-
-            // đăng ký observer
             intersection.registerObserver(v);
-
-            // chạy thread cho xe
             new Thread(v).start();
         }
 
-        // ===== ENGINE =====
-        SimulationEngine engine = new SimulationEngine();
-
-        // chạy đèn giao thông (thread riêng)
-        Thread trafficThread = new Thread(() -> {
-            System.out.println("🚦 Đèn giao thông bắt đầu hoạt động...");
-            intersection.start();
-        });
-
+        // chạy đèn giao thông
+        Thread trafficThread = new Thread(intersection::start);
         trafficThread.setDaemon(true);
         trafficThread.start();
 
-        // ===== MONITORING =====
-        long startTime = System.currentTimeMillis();
-        int passedVehicles = 0;
-
-        System.out.println("===== BẮT ĐẦU GIÁM SÁT =====");
-
-        while (true) {
-            try {
-                Thread.sleep(3000);
-
-                long currentTime = (System.currentTimeMillis() - startTime) / 1000;
-
-                System.out.println("[Time: " + currentTime + "s] Trạng thái đèn: "
-                        + intersection.getStateColor());
-
-                // thống kê đơn giản (giả lập)
-                passedVehicles += (int) (Math.random() * 3);
-
-                System.out.println("[Time: " + currentTime + "s] Số xe đã qua: "
-                        + passedVehicles);
-
-                // giả lập kẹt xe
-                if (Math.random() < 0.1) {
-                    System.out.println("[CẢNH BÁO] Có dấu hiệu kẹt xe tại ngã tư!");
-                }
-
-                System.out.println("------------------------------------------------");
-
-            } catch (InterruptedException e) {
-                System.out.println("Hệ thống bị dừng!");
-                Thread.currentThread().interrupt();
-                break;
-            }
-        }
+        System.out.println("===== HỆ THỐNG ĐANG CHẠY =====");
     }
 }
