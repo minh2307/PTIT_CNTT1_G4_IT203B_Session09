@@ -39,10 +39,20 @@ public abstract class Vehicle implements Observer, Runnable {
             try {
                 Thread.sleep(speed);
 
-                if (canGo()) {
+                try {
+                    intersection.requestEnter(this);
+
                     move();
-                    intersection.enterIntersection(getName());
-                } else {
+
+                    Thread.sleep(500);
+
+                    intersection.leaveIntersection();
+
+                    System.out.println(getName() + " đã rời hệ thống");
+
+                    break; // 🔥 QUAN TRỌNG
+
+                } catch (RuntimeException e) {
                     stop();
                 }
 

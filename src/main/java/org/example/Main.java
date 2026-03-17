@@ -12,45 +12,48 @@ public class Main {
 
     public static void main(String[] args) {
 
-        System.out.println("===== MÔ PHỎNG GIAO THÔNG =====");
+        System.out.println("===== MÔ PHỎNG GIAO THÔNG REAL-TIME =====");
 
         Intersection intersection = new Intersection();
-        List<Vehicle> vehicles = new ArrayList<>();
 
-        int maxPriority = 2; // 👈 CHỈ cho tối đa 2 xe cứu thương
-        int currentPriority = 0;
-
-        System.out.println("===== TẠO PHƯƠNG TIỆN =====");
-
-        for (int i = 0; i < 10; i++) {
-
-            Vehicle v = VehicleFactory.createVehicle(intersection);
-
-            // kiểm soát số xe cứu thương
-            if (v instanceof PriorityVehicle) {
-                if (currentPriority >= maxPriority) {
-                    // nếu vượt quá → tạo lại xe thường
-                    v = VehicleFactory.createVehicle(intersection);
-
-                    // ép lại nếu vẫn ra xe cứu thương
-                    while (v instanceof PriorityVehicle) {
-                        v = VehicleFactory.createVehicle(intersection);
-                    }
-                } else {
-                    currentPriority++;
-                }
-            }
-
-            vehicles.add(v);
-            intersection.registerObserver(v);
-            new Thread(v).start();
-        }
-
-        // chạy đèn giao thông
+        // 🚦 chạy đèn
         Thread trafficThread = new Thread(intersection::start);
         trafficThread.setDaemon(true);
         trafficThread.start();
 
-        System.out.println("===== HỆ THỐNG ĐANG CHẠY =====");
+        // 🚗 sinh xe liên tục
+        Thread generator = new Thread(() -> {
+            while (true) {
+                try {
+                    Thread.sleep(1000); // mỗi 1s tạo 1 xe
+
+                    Vehicle v = VehicleFactory.createVehicle(intersection);
+                    intersection.registerObserver(v);
+
+                    new Thread(v).start();
+
+                } catch (InterruptedException e) {
+                    Thread.currentThread().interrupt();
+                    break;
+                }
+            }
+        });
+
+        generator.start();
+
+        // 📊 monitor hệ thống
+        while (true) {
+            try {
+                Thread.sleep(3000);
+
+                System.out.println("\n===== TRẠNG THÁI HỆ THỐNG =====");
+                System.out.println("Đèn: " + intersection.getStateColor());
+                System.out.println("Xe đang chờ: " + intersection.getWaitingSize());
+                System.out.println("================================\n");
+
+            } catch (InterruptedException e) {
+                break;
+            }
+        }
     }
 }
