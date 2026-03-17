@@ -1,47 +1,62 @@
 package org.example.entity;
 
 
-import java.util.UUID;
+import org.example.engine.Intersection;
+import org.example.pattern.observer.Observer;
 
-public abstract class Vehicle implements Runnable {
+public abstract class Vehicle implements Observer, Runnable {
 
     protected String id;
-    protected double speed;
-    protected String type;
-    protected int priority;
+    protected int speed;
+    protected Intersection intersection;
+    protected volatile String trafficLightState = "RED";
 
-    public Vehicle(double speed, String type, int priority) {
-        this.id = UUID.randomUUID().toString();
+    public Vehicle(String id, int speed, Intersection intersection) {
+        this.id = id;
         this.speed = speed;
-        this.type = type;
-        this.priority = priority;
+        this.intersection = intersection;
     }
 
-    public abstract void move();
-
-    public String getId() {
-        return id;
+    // Observer: nhận tín hiệu đèn
+    @Override
+    public void update(String state) {
+        this.trafficLightState = state;
     }
 
-    public double getSpeed() {
-        return speed;
+    // hành vi chung
+    public void move() {
+        System.out.println(getName() + " đang di chuyển...");
     }
 
-    public String getType() {
-        return type;
+    public void stop() {
+        System.out.println(getName() + " đang dừng lại...");
     }
 
-    public int getPriority() {
-        return priority;
-    }
-
+    // mỗi xe chạy như 1 thread
     @Override
     public void run() {
-        move();
+        while (true) {
+            try {
+                Thread.sleep(speed);
+
+                if (canGo()) {
+                    move();
+                    intersection.enterIntersection(getName());
+                } else {
+                    stop();
+                }
+
+            } catch (InterruptedException e) {
+                Thread.currentThread().interrupt();
+                break;
+            }
+        }
     }
 
-    @Override
-    public String toString() {
-        return "[" + type + " #" + id.substring(0, 5) + "]";
+    // logic quyết định đi/dừng
+    protected boolean canGo() {
+        return "GREEN".equals(trafficLightState);
     }
+
+    public abstract String getName();
 }
