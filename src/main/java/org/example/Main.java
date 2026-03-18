@@ -12,23 +12,23 @@ public class Main {
 
         Intersection intersection = new Intersection();
 
-        // ================= 🚦 TRAFFIC LIGHT =================
+        // ================= TRAFFIC LIGHT =================
         Thread trafficThread = new Thread(() -> {
-            System.out.println("🚦 Đèn giao thông bắt đầu...");
+            System.out.println("Đèn giao thông bắt đầu...");
 
             try {
                 while (!Thread.currentThread().isInterrupted()) {
                     intersection.start(); // mỗi lần = 1 state (GREEN → YELLOW → RED)
                 }
             } catch (Exception e) {
-                System.out.println("🚦 Đèn giao thông dừng!");
+                System.out.println("Đèn giao thông dừng!");
             }
         });
 
         trafficThread.setDaemon(true);
         trafficThread.start();
 
-        // ================= 🚗 VEHICLE GENERATOR =================
+        // ================= VEHICLE GENERATOR =================
         Thread generator = new Thread(() -> {
             try {
                 while (!Thread.currentThread().isInterrupted()) {
@@ -51,7 +51,6 @@ public class Main {
 
         generator.start();
 
-        // ================= 📊 MONITOR =================
         Thread monitor = new Thread(() -> {
             try {
                 while (!Thread.currentThread().isInterrupted()) {
@@ -72,15 +71,14 @@ public class Main {
         monitor.setDaemon(true);
         monitor.start();
 
-        // ================= ⏳ CHẠY 30 GIÂY =================
+        // ================= CHẠY 30 GIÂY =================
         try {
             Thread.sleep(30000); // chạy 30s
         } catch (InterruptedException e) {
             Thread.currentThread().interrupt();
         }
 
-        // ================= 🛑 STOP =================
-        System.out.println("🚨 Dừng hệ thống...");
+        System.out.println("Dừng hệ thống...");
 
         generator.interrupt();
         trafficThread.interrupt();

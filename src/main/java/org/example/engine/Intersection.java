@@ -77,17 +77,17 @@ public class Intersection implements Subject {
         // ================= 🚑 PRIORITY =================
         if (vehicle instanceof PriorityVehicle) {
 
-            Logger.log(vehicle.getName() + " 🚨 xin ưu tiên!");
+            Logger.log(vehicle.getName() + "xin ưu tiên!");
 
             if (isOccupied) {
                 checkTrafficJam();
-                throw new CollisionException("💥 Va chạm khi ưu tiên!");
+                throw new CollisionException("Va chạm khi ưu tiên!");
             }
 
             isOccupied = true;
             waitingQueue.remove(vehicle);
 
-            Logger.log("🚑 " + vehicle.getName() + " VƯỢT ĐÈN 🚨");
+            Logger.log("🚑 " + vehicle.getName() + " VƯỢT ĐÈN");
 
             passedVehicles++;
             return;
@@ -102,7 +102,7 @@ public class Intersection implements Subject {
         if (!hasPriority && waitingQueue.peek() == vehicle && isGreen) {
 
             if (isOccupied) {
-                throw new CollisionException("💥 Va chạm do lock lỗi!");
+                throw new CollisionException("Va chạm do lock lỗi!");
             }
 
             isOccupied = true;
@@ -130,7 +130,7 @@ public class Intersection implements Subject {
 
             if (!isTrafficJam) {
                 isTrafficJam = true;
-                throw new TrafficJamException("⚠️ KẸT XE NGHIÊM TRỌNG!");
+                throw new TrafficJamException("KẸT XE NGHIÊM TRỌNG!");
             }
 
         } else {
