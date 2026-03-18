@@ -2,7 +2,9 @@ package org.example.entity;
 
 
 import org.example.engine.Intersection;
-import org.example.pattern.observer.Observer;
+import org.example.exception.CollisionException;import org.example.exception.TrafficJamException;import org.example.pattern.observer.Observer;
+import org.example.util.Logger;
+
 
 public abstract class Vehicle implements Observer, Runnable {
 
@@ -11,51 +13,76 @@ public abstract class Vehicle implements Observer, Runnable {
     protected Intersection intersection;
     protected volatile String trafficLightState = "RED";
 
+    private boolean wasStopped = false;
+
     public Vehicle(String id, int speed, Intersection intersection) {
         this.id = id;
         this.speed = speed;
         this.intersection = intersection;
     }
 
-    // Observer: nhận tín hiệu đèn
     @Override
     public void update(String state) {
         this.trafficLightState = state;
     }
 
-    // hành vi chung
     public void move() {
-        System.out.println(getName() + " đang di chuyển...");
+        Logger.log(getName() + " đang di chuyển...");
+        wasStopped = false;
     }
 
     public void stop() {
-        System.out.println(getName() + " đang dừng lại...");
+        if (!wasStopped) {
+            Logger.log(getName() + " đang dừng lại...");
+            wasStopped = true;
+        }
     }
 
-    // mỗi xe chạy như 1 thread
+    protected boolean canGo() {
+        return "GREEN".equals(trafficLightState);
+    }
+
     @Override
     public void run() {
+
         while (true) {
             try {
-                Thread.sleep(speed);
+                intersection.requestEnter(this);
 
-                if (canGo()) {
-                    move();
-                    intersection.enterIntersection(getName());
-                } else {
-                    stop();
+                move();
+
+                Thread.sleep(1000);
+
+                intersection.leaveIntersection();
+
+                break;
+
+            } catch (TrafficJamException e) {
+                System.out.println(e.getMessage());
+
+                try {
+                    Thread.sleep(1000);
+                } catch (InterruptedException ex) {
+                    Thread.currentThread().interrupt();
+                }
+
+            } catch (CollisionException e) {
+                System.out.println(e.getMessage());
+                break;
+
+            } catch (RuntimeException e) {
+                if ("WAIT".equals(e.getMessage())) {
+                    try {
+                        Thread.sleep(500);
+                    } catch (InterruptedException ex) {
+                        Thread.currentThread().interrupt();
+                    }
                 }
 
             } catch (InterruptedException e) {
                 Thread.currentThread().interrupt();
-                break;
             }
         }
-    }
-
-    // logic quyết định đi/dừng
-    protected boolean canGo() {
-        return "GREEN".equals(trafficLightState);
     }
 
     public abstract String getName();

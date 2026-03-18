@@ -1,85 +1,88 @@
 package org.example;
 
 import org.example.engine.Intersection;
-import org.example.engine.SimulationEngine;
 import org.example.entity.Vehicle;
 import org.example.pattern.factory.VehicleFactory;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class Main {
 
     public static void main(String[] args) {
 
-        System.out.println("===== HỆ THỐNG MÔ PHỎNG GIAO THÔNG THÔNG MINH =====");
+        System.out.println("===== MÔ PHỎNG GIAO THÔNG =====");
 
-        // ===== KHỞI TẠO NGÃ TƯ =====
         Intersection intersection = new Intersection();
 
-        // ===== DANH SÁCH XE =====
-        List<Vehicle> vehicles = new ArrayList<>();
-
-        System.out.println("===== TẠO PHƯƠNG TIỆN =====");
-
-        // Tạo ngẫu nhiên nhiều xe
-        for (int i = 0; i < 10; i++) {
-            Vehicle v = VehicleFactory.createVehicle(intersection);
-
-            vehicles.add(v);
-
-            // đăng ký observer
-            intersection.registerObserver(v);
-
-            // chạy thread cho xe
-            new Thread(v).start();
-        }
-
-        // ===== ENGINE =====
-        SimulationEngine engine = new SimulationEngine();
-
-        // chạy đèn giao thông (thread riêng)
+        // ================= TRAFFIC LIGHT =================
         Thread trafficThread = new Thread(() -> {
-            System.out.println("🚦 Đèn giao thông bắt đầu hoạt động...");
-            intersection.start();
+            System.out.println("Đèn giao thông bắt đầu...");
+
+            try {
+                while (!Thread.currentThread().isInterrupted()) {
+                    intersection.start(); // mỗi lần = 1 state (GREEN → YELLOW → RED)
+                }
+            } catch (Exception e) {
+                System.out.println("Đèn giao thông dừng!");
+            }
         });
 
         trafficThread.setDaemon(true);
         trafficThread.start();
 
-        // ===== MONITORING =====
-        long startTime = System.currentTimeMillis();
-        int passedVehicles = 0;
-
-        System.out.println("===== BẮT ĐẦU GIÁM SÁT =====");
-
-        while (true) {
+        // ================= VEHICLE GENERATOR =================
+        Thread generator = new Thread(() -> {
             try {
-                Thread.sleep(3000);
+                while (!Thread.currentThread().isInterrupted()) {
 
-                long currentTime = (System.currentTimeMillis() - startTime) / 1000;
+                    Thread.sleep(2000);
 
-                System.out.println("[Time: " + currentTime + "s] Trạng thái đèn: "
-                        + intersection.getStateColor());
+                    Vehicle v = VehicleFactory.createVehicle(intersection);
 
-                // thống kê đơn giản (giả lập)
-                passedVehicles += (int) (Math.random() * 3);
+                    System.out.println("🚘 Tạo " + v.getName());
 
-                System.out.println("[Time: " + currentTime + "s] Số xe đã qua: "
-                        + passedVehicles);
+                    intersection.registerObserver(v);
 
-                // giả lập kẹt xe
-                if (Math.random() < 0.1) {
-                    System.out.println("[CẢNH BÁO] Có dấu hiệu kẹt xe tại ngã tư!");
+                    new Thread(v).start();
                 }
-
-                System.out.println("------------------------------------------------");
-
             } catch (InterruptedException e) {
-                System.out.println("Hệ thống bị dừng!");
                 Thread.currentThread().interrupt();
-                break;
+                System.out.println("🚘 Dừng tạo xe");
             }
+        });
+
+        generator.start();
+
+        Thread monitor = new Thread(() -> {
+            try {
+                while (!Thread.currentThread().isInterrupted()) {
+
+                    Thread.sleep(3000);
+
+                    System.out.println("\n===== TRẠNG THÁI HỆ THỐNG =====");
+                    System.out.println("Đèn: " + intersection.getStateColor());
+                    System.out.println("Xe đang chờ: " + intersection.getWaitingSize());
+                    System.out.println("Xe đã qua: " + intersection.getPassedVehicles());
+                    System.out.println("================================\n");
+                }
+            } catch (InterruptedException e) {
+                Thread.currentThread().interrupt();
+            }
+        });
+
+        monitor.setDaemon(true);
+        monitor.start();
+
+        // ================= CHẠY 30 GIÂY =================
+        try {
+            Thread.sleep(30000); // chạy 30s
+        } catch (InterruptedException e) {
+            Thread.currentThread().interrupt();
         }
+
+        System.out.println("Dừng hệ thống...");
+
+        generator.interrupt();
+        trafficThread.interrupt();
+
+        System.out.println("===== KẾT THÚC MÔ PHỎNG =====");
     }
 }
