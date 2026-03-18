@@ -1,0 +1,614 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="ConcurrencyTest" tests="1" skipped="0" failures="1" errors="0" timestamp="2026-03-18T04:06:44.234Z" hostname="NGUYEN-SON-MINH" time="0.095">
+  <properties/>
+  <testcase name="stressTest100Vehicles()" classname="ConcurrencyTest" time="0.095">
+    <failure message="org.opentest4j.AssertionFailedError: expected: &lt;100&gt; but was: &lt;1&gt;" type="org.opentest4j.AssertionFailedError">org.opentest4j.AssertionFailedError: expected: &lt;100&gt; but was: &lt;1&gt;
+	at app//org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+	at app//org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+	at app//org.junit.jupiter.api.AssertEquals.failNotEqual(AssertEquals.java:197)
+	at app//org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:150)
+	at app//org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:145)
+	at app//org.junit.jupiter.api.Assertions.assertEquals(Assertions.java:527)
+	at app//ConcurrencyTest.stressTest100Vehicles(ConcurrencyTest.java:60)
+	at java.base@17.0.12/java.lang.reflect.Method.invoke(Method.java:568)
+	at java.base@17.0.12/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at java.base@17.0.12/java.util.ArrayList.forEach(ArrayList.java:1511)
+</failure>
+  </testcase>
+  <system-out><![CDATA[[Time: 11:06:44] [Thread-5] ]]>&#x1f697;<![CDATA[ TestCar V2 đang đi qua ngã tư
+[Time: 11:06:44] [Thread-42] ]]>&#x1f697;<![CDATA[ TestCar V39 đang dừng lại...
+[Time: 11:06:44] [Thread-101] ]]>&#x1f697;<![CDATA[ TestCar V98 đang dừng lại...
+[Time: 11:06:44] [Thread-100] ]]>&#x1f697;<![CDATA[ TestCar V97 đang dừng lại...
+[Time: 11:06:44] [Thread-98] ]]>&#x1f697;<![CDATA[ TestCar V95 đang dừng lại...
+[Time: 11:06:44] [Thread-97] ]]>&#x1f697;<![CDATA[ TestCar V94 đang dừng lại...
+[Time: 11:06:44] [Thread-39] ]]>&#x1f697;<![CDATA[ TestCar V36 đang dừng lại...
+[Time: 11:06:44] [Thread-95] ]]>&#x1f697;<![CDATA[ TestCar V92 đang dừng lại...
+[Time: 11:06:44] [Thread-94] ]]>&#x1f697;<![CDATA[ TestCar V91 đang dừng lại...
+[Time: 11:06:44] [Thread-93] ]]>&#x1f697;<![CDATA[ TestCar V90 đang dừng lại...
+[Time: 11:06:44] [Thread-92] ]]>&#x1f697;<![CDATA[ TestCar V89 đang dừng lại...
+[Time: 11:06:44] [Thread-91] ]]>&#x1f697;<![CDATA[ TestCar V88 đang dừng lại...
+[Time: 11:06:44] [Thread-90] ]]>&#x1f697;<![CDATA[ TestCar V87 đang dừng lại...
+[Time: 11:06:44] [Thread-89] ]]>&#x1f697;<![CDATA[ TestCar V86 đang dừng lại...
+[Time: 11:06:44] [Thread-86] ]]>&#x1f697;<![CDATA[ TestCar V83 đang dừng lại...
+[Time: 11:06:44] [Thread-88] ]]>&#x1f697;<![CDATA[ TestCar V85 đang dừng lại...
+[Time: 11:06:44] [Thread-35] ]]>&#x1f697;<![CDATA[ TestCar V32 đang dừng lại...
+[Time: 11:06:44] [Thread-85] ]]>&#x1f697;<![CDATA[ TestCar V82 đang dừng lại...
+[Time: 11:06:44] [Thread-84] ]]>&#x1f697;<![CDATA[ TestCar V81 đang dừng lại...
+[Time: 11:06:44] [Thread-83] ]]>&#x1f697;<![CDATA[ TestCar V80 đang dừng lại...
+[Time: 11:06:44] [Thread-82] ]]>&#x1f697;<![CDATA[ TestCar V79 đang dừng lại...
+[Time: 11:06:44] [Thread-81] ]]>&#x1f697;<![CDATA[ TestCar V78 đang dừng lại...
+[Time: 11:06:44] [Thread-80] ]]>&#x1f697;<![CDATA[ TestCar V77 đang dừng lại...
+[Time: 11:06:44] [Thread-79] ]]>&#x1f697;<![CDATA[ TestCar V76 đang dừng lại...
+[Time: 11:06:44] [Thread-78] ]]>&#x1f697;<![CDATA[ TestCar V75 đang dừng lại...
+[Time: 11:06:44] [Thread-77] ]]>&#x1f697;<![CDATA[ TestCar V74 đang dừng lại...
+[Time: 11:06:44] [Thread-29] ]]>&#x1f697;<![CDATA[ TestCar V26 đang dừng lại...
+[Time: 11:06:44] [Thread-31] ]]>&#x1f697;<![CDATA[ TestCar V28 đang dừng lại...
+[Time: 11:06:44] [Thread-75] ]]>&#x1f697;<![CDATA[ TestCar V72 đang dừng lại...
+[Time: 11:06:44] [Thread-73] ]]>&#x1f697;<![CDATA[ TestCar V70 đang dừng lại...
+[Time: 11:06:44] [Thread-72] ]]>&#x1f697;<![CDATA[ TestCar V69 đang dừng lại...
+[Time: 11:06:44] [Thread-71] ]]>&#x1f697;<![CDATA[ TestCar V68 đang dừng lại...
+[Time: 11:06:44] [Thread-70] ]]>&#x1f697;<![CDATA[ TestCar V67 đang dừng lại...
+[Time: 11:06:44] [Thread-69] ]]>&#x1f697;<![CDATA[ TestCar V66 đang dừng lại...
+[Time: 11:06:44] [Thread-30] ]]>&#x1f697;<![CDATA[ TestCar V27 đang dừng lại...
+[Time: 11:06:44] [Thread-67] ]]>&#x1f697;<![CDATA[ TestCar V64 đang dừng lại...
+[Time: 11:06:44] [Thread-66] ]]>&#x1f697;<![CDATA[ TestCar V63 đang dừng lại...
+[Time: 11:06:44] [Thread-65] ]]>&#x1f697;<![CDATA[ TestCar V62 đang dừng lại...
+[Time: 11:06:44] [Thread-25] ]]>&#x1f697;<![CDATA[ TestCar V22 đang dừng lại...
+[Time: 11:06:44] [Thread-64] ]]>&#x1f697;<![CDATA[ TestCar V61 đang dừng lại...
+[Time: 11:06:44] [Thread-63] ]]>&#x1f697;<![CDATA[ TestCar V60 đang dừng lại...
+[Time: 11:06:44] [Thread-62] ]]>&#x1f697;<![CDATA[ TestCar V59 đang dừng lại...
+[Time: 11:06:44] [Thread-61] ]]>&#x1f697;<![CDATA[ TestCar V58 đang dừng lại...
+[Time: 11:06:44] [Thread-56] ]]>&#x1f697;<![CDATA[ TestCar V53 đang dừng lại...
+[Time: 11:06:44] [Thread-23] ]]>&#x1f697;<![CDATA[ TestCar V20 đang dừng lại...
+[Time: 11:06:44] [Thread-59] ]]>&#x1f697;<![CDATA[ TestCar V56 đang dừng lại...
+[Time: 11:06:44] [Thread-58] ]]>&#x1f697;<![CDATA[ TestCar V55 đang dừng lại...
+[Time: 11:06:44] [Thread-57] ]]>&#x1f697;<![CDATA[ TestCar V54 đang dừng lại...
+[Time: 11:06:44] [Thread-54] ]]>&#x1f697;<![CDATA[ TestCar V51 đang dừng lại...
+[Time: 11:06:44] [Thread-53] ]]>&#x1f697;<![CDATA[ TestCar V50 đang dừng lại...
+[Time: 11:06:44] [Thread-52] ]]>&#x1f697;<![CDATA[ TestCar V49 đang dừng lại...
+[Time: 11:06:44] [Thread-49] ]]>&#x1f697;<![CDATA[ TestCar V46 đang dừng lại...
+[Time: 11:06:44] [Thread-51] ]]>&#x1f697;<![CDATA[ TestCar V48 đang dừng lại...
+[Time: 11:06:44] [Thread-50] ]]>&#x1f697;<![CDATA[ TestCar V47 đang dừng lại...
+[Time: 11:06:44] [Thread-48] ]]>&#x1f697;<![CDATA[ TestCar V45 đang dừng lại...
+[Time: 11:06:44] [Thread-47] ]]>&#x1f697;<![CDATA[ TestCar V44 đang dừng lại...
+[Time: 11:06:44] [Thread-46] ]]>&#x1f697;<![CDATA[ TestCar V43 đang dừng lại...
+[Time: 11:06:44] [Thread-13] ]]>&#x1f697;<![CDATA[ TestCar V10 đang dừng lại...
+[Time: 11:06:44] [Thread-44] ]]>&#x1f697;<![CDATA[ TestCar V41 đang dừng lại...
+[Time: 11:06:44] [Thread-41] ]]>&#x1f697;<![CDATA[ TestCar V38 đang dừng lại...
+[Time: 11:06:44] [Thread-43] ]]>&#x1f697;<![CDATA[ TestCar V40 đang dừng lại...
+[Time: 11:06:44] [Thread-99] ]]>&#x1f697;<![CDATA[ TestCar V96 đang dừng lại...
+[Time: 11:06:44] [Thread-40] ]]>&#x1f697;<![CDATA[ TestCar V37 đang dừng lại...
+[Time: 11:06:44] [Thread-96] ]]>&#x1f697;<![CDATA[ TestCar V93 đang dừng lại...
+[Time: 11:06:44] [Thread-38] ]]>&#x1f697;<![CDATA[ TestCar V35 đang dừng lại...
+[Time: 11:06:44] [Thread-37] ]]>&#x1f697;<![CDATA[ TestCar V34 đang dừng lại...
+[Time: 11:06:44] [Thread-36] ]]>&#x1f697;<![CDATA[ TestCar V33 đang dừng lại...
+[Time: 11:06:44] [Thread-87] ]]>&#x1f697;<![CDATA[ TestCar V84 đang dừng lại...
+[Time: 11:06:44] [Thread-34] ]]>&#x1f697;<![CDATA[ TestCar V31 đang dừng lại...
+[Time: 11:06:44] [Thread-33] ]]>&#x1f697;<![CDATA[ TestCar V30 đang dừng lại...
+[Time: 11:06:44] [Thread-32] ]]>&#x1f697;<![CDATA[ TestCar V29 đang dừng lại...
+[Time: 11:06:44] [Thread-12] ]]>&#x1f697;<![CDATA[ TestCar V9 đang dừng lại...
+[Time: 11:06:44] [Thread-76] ]]>&#x1f697;<![CDATA[ TestCar V73 đang dừng lại...
+[Time: 11:06:44] [Thread-74] ]]>&#x1f697;<![CDATA[ TestCar V71 đang dừng lại...
+[Time: 11:06:44] [Thread-10] ]]>&#x1f697;<![CDATA[ TestCar V7 đang dừng lại...
+[Time: 11:06:44] [Thread-68] ]]>&#x1f697;<![CDATA[ TestCar V65 đang dừng lại...
+[Time: 11:06:44] [Thread-27] ]]>&#x1f697;<![CDATA[ TestCar V24 đang dừng lại...
+[Time: 11:06:44] [Thread-7] ]]>&#x1f697;<![CDATA[ TestCar V4 đang dừng lại...
+[Time: 11:06:44] [Thread-60] ]]>&#x1f697;<![CDATA[ TestCar V57 đang dừng lại...
+[Time: 11:06:44] [Thread-24] ]]>&#x1f697;<![CDATA[ TestCar V21 đang dừng lại...
+[Time: 11:06:44] [Thread-55] ]]>&#x1f697;<![CDATA[ TestCar V52 đang dừng lại...
+[Time: 11:06:44] [Thread-21] ]]>&#x1f697;<![CDATA[ TestCar V18 đang dừng lại...
+[Time: 11:06:44] [Thread-4] ]]>&#x1f697;<![CDATA[ TestCar V1 đang dừng lại...
+[Time: 11:06:44] [Thread-20] ]]>&#x1f697;<![CDATA[ TestCar V17 đang dừng lại...
+[Time: 11:06:44] [Thread-18] ]]>&#x1f697;<![CDATA[ TestCar V15 đang dừng lại...
+[Time: 11:06:44] [Thread-17] ]]>&#x1f697;<![CDATA[ TestCar V14 đang dừng lại...
+[Time: 11:06:44] [Thread-45] ]]>&#x1f697;<![CDATA[ TestCar V42 đang dừng lại...
+[Time: 11:06:44] [Thread-14] ]]>&#x1f697;<![CDATA[ TestCar V11 đang dừng lại...
+[Time: 11:06:44] [Thread-16] ]]>&#x1f697;<![CDATA[ TestCar V13 đang dừng lại...
+[Time: 11:06:44] [Thread-15] ]]>&#x1f697;<![CDATA[ TestCar V12 đang dừng lại...
+[Time: 11:06:44] [Thread-11] ]]>&#x1f697;<![CDATA[ TestCar V8 đang dừng lại...
+[Time: 11:06:44] [Thread-28] ]]>&#x1f697;<![CDATA[ TestCar V25 đang dừng lại...
+[Time: 11:06:44] [Thread-9] ]]>&#x1f697;<![CDATA[ TestCar V6 đang dừng lại...
+[Time: 11:06:44] [Thread-26] ]]>&#x1f697;<![CDATA[ TestCar V23 đang dừng lại...
+[Time: 11:06:44] [Thread-22] ]]>&#x1f697;<![CDATA[ TestCar V19 đang dừng lại...
+[Time: 11:06:44] [Thread-8] ]]>&#x1f697;<![CDATA[ TestCar V5 đang dừng lại...
+[Time: 11:06:44] [Thread-3] ]]>&#x1f697;<![CDATA[ TestCar V0 đang dừng lại...
+[Time: 11:06:44] [Thread-19] ]]>&#x1f697;<![CDATA[ TestCar V16 đang dừng lại...
+[Time: 11:06:44] [Thread-6] ]]>&#x1f697;<![CDATA[ TestCar V3 đang dừng lại...
+]]></system-out>
+  <system-err><![CDATA[Exception in thread "Thread-42" org.opentest4j.AssertionFailedError: ❌ Collision hoặc lỗi thread: WAIT
+	at org.junit.jupiter.api.AssertionUtils.fail(AssertionUtils.java:38)
+	at org.junit.jupiter.api.Assertions.fail(Assertions.java:134)
+	at ConcurrencyTest$1.run(ConcurrencyTest.java:42)
+	at java.base/java.lang.Thread.run(Thread.java:842)
+Exception in thread "Thread-85" org.opentest4j.AssertionFailedError: ❌ Collision hoặc lỗi thread: WAIT
+	at org.junit.jupiter.api.AssertionUtils.fail(AssertionUtils.java:38)
+	at org.junit.jupiter.api.Assertions.fail(Assertions.java:134)
+	at ConcurrencyTest$1.run(ConcurrencyTest.java:42)
+	at java.base/java.lang.Thread.run(Thread.java:842)
+Exception in thread "Thread-81" org.opentest4j.AssertionFailedError: ❌ Collision hoặc lỗi thread: WAIT
+	at org.junit.jupiter.api.AssertionUtils.fail(AssertionUtils.java:38)
+	at org.junit.jupiter.api.Assertions.fail(Assertions.java:134)
+	at ConcurrencyTest$1.run(ConcurrencyTest.java:42)
+	at java.base/java.lang.Thread.run(Thread.java:842)
+Exception in thread "Thread-102" org.opentest4j.AssertionFailedError: ❌ Collision hoặc lỗi thread: ]]>&#x1f4a5;<![CDATA[ Va chạm do lock lỗi!
+	at org.junit.jupiter.api.AssertionUtils.fail(AssertionUtils.java:38)
+	at org.junit.jupiter.api.Assertions.fail(Assertions.java:134)
+	at ConcurrencyTest$1.run(ConcurrencyTest.java:42)
+	at java.base/java.lang.Thread.run(Thread.java:842)
+Exception in thread "Thread-100" org.opentest4j.AssertionFailedError: ❌ Collision hoặc lỗi thread: WAIT
+	at org.junit.jupiter.api.AssertionUtils.fail(AssertionUtils.java:38)
+	at org.junit.jupiter.api.Assertions.fail(Assertions.java:134)
+	at ConcurrencyTest$1.run(ConcurrencyTest.java:42)
+	at java.base/java.lang.Thread.run(Thread.java:842)
+Exception in thread "Thread-79" org.opentest4j.AssertionFailedError: ❌ Collision hoặc lỗi thread: WAIT
+	at org.junit.jupiter.api.AssertionUtils.fail(AssertionUtils.java:38)
+	at org.junit.jupiter.api.Assertions.fail(Assertions.java:134)
+	at ConcurrencyTest$1.run(ConcurrencyTest.java:42)
+	at java.base/java.lang.Thread.run(Thread.java:842)
+Exception in thread "Thread-98" org.opentest4j.AssertionFailedError: ❌ Collision hoặc lỗi thread: WAIT
+	at org.junit.jupiter.api.AssertionUtils.fail(AssertionUtils.java:38)
+	at org.junit.jupiter.api.Assertions.fail(Assertions.java:134)
+	at ConcurrencyTest$1.run(ConcurrencyTest.java:42)
+	at java.base/java.lang.Thread.run(Thread.java:842)
+Exception in thread "Thread-80" org.opentest4j.AssertionFailedError: ❌ Collision hoặc lỗi thread: WAIT
+	at org.junit.jupiter.api.AssertionUtils.fail(AssertionUtils.java:38)
+	at org.junit.jupiter.api.Assertions.fail(Assertions.java:134)
+	at ConcurrencyTest$1.run(ConcurrencyTest.java:42)
+	at java.base/java.lang.Thread.run(Thread.java:842)
+Exception in thread "Thread-25" org.opentest4j.AssertionFailedError: ❌ Collision hoặc lỗi thread: WAIT
+	at org.junit.jupiter.api.AssertionUtils.fail(AssertionUtils.java:38)
+	at org.junit.jupiter.api.Assertions.fail(Assertions.java:134)
+	at ConcurrencyTest$1.run(ConcurrencyTest.java:42)
+	at java.base/java.lang.Thread.run(Thread.java:842)
+Exception in thread "Thread-101" org.opentest4j.AssertionFailedError: ❌ Collision hoặc lỗi thread: WAIT
+	at org.junit.jupiter.api.AssertionUtils.fail(AssertionUtils.java:38)
+	at org.junit.jupiter.api.Assertions.fail(Assertions.java:134)
+	at ConcurrencyTest$1.run(ConcurrencyTest.java:42)
+	at java.base/java.lang.Thread.run(Thread.java:842)
+Exception in thread "Thread-39" org.opentest4j.AssertionFailedError: ❌ Collision hoặc lỗi thread: WAIT
+	at org.junit.jupiter.api.AssertionUtils.fail(AssertionUtils.java:38)
+	at org.junit.jupiter.api.Assertions.fail(Assertions.java:134)
+	at ConcurrencyTest$1.run(ConcurrencyTest.java:42)
+	at java.base/java.lang.Thread.run(Thread.java:842)
+Exception in thread "Thread-62" org.opentest4j.AssertionFailedError: ❌ Collision hoặc lỗi thread: WAIT
+	at org.junit.jupiter.api.AssertionUtils.fail(AssertionUtils.java:38)
+	at org.junit.jupiter.api.Assertions.fail(Assertions.java:134)
+	at ConcurrencyTest$1.run(ConcurrencyTest.java:42)
+	at java.base/java.lang.Thread.run(Thread.java:842)
+Exception in thread "Thread-61" org.opentest4j.AssertionFailedError: ❌ Collision hoặc lỗi thread: WAIT
+	at org.junit.jupiter.api.AssertionUtils.fail(AssertionUtils.java:38)
+	at org.junit.jupiter.api.Assertions.fail(Assertions.java:134)
+	at ConcurrencyTest$1.run(ConcurrencyTest.java:42)
+	at java.base/java.lang.Thread.run(Thread.java:842)
+Exception in thread "Thread-35" org.opentest4j.AssertionFailedError: ❌ Collision hoặc lỗi thread: WAIT
+	at org.junit.jupiter.api.AssertionUtils.fail(AssertionUtils.java:38)
+	at org.junit.jupiter.api.Assertions.fail(Assertions.java:134)
+	at ConcurrencyTest$1.run(ConcurrencyTest.java:42)
+	at java.base/java.lang.Thread.run(Thread.java:842)
+Exception in thread "Thread-59" org.opentest4j.AssertionFailedError: ❌ Collision hoặc lỗi thread: WAIT
+	at org.junit.jupiter.api.AssertionUtils.fail(AssertionUtils.java:38)
+	at org.junit.jupiter.api.Assertions.fail(Assertions.java:134)
+	at ConcurrencyTest$1.run(ConcurrencyTest.java:42)
+	at java.base/java.lang.Thread.run(Thread.java:842)
+Exception in thread "Thread-90" org.opentest4j.AssertionFailedError: ❌ Collision hoặc lỗi thread: WAIT
+	at org.junit.jupiter.api.AssertionUtils.fail(AssertionUtils.java:38)
+	at org.junit.jupiter.api.Assertions.fail(Assertions.java:134)
+	at ConcurrencyTest$1.run(ConcurrencyTest.java:42)
+	at java.base/java.lang.Thread.run(Thread.java:842)
+Exception in thread "Thread-54" org.opentest4j.AssertionFailedError: ❌ Collision hoặc lỗi thread: WAIT
+	at org.junit.jupiter.api.AssertionUtils.fail(AssertionUtils.java:38)
+	at org.junit.jupiter.api.Assertions.fail(Assertions.java:134)
+	at ConcurrencyTest$1.run(ConcurrencyTest.java:42)
+	at java.base/java.lang.Thread.run(Thread.java:842)
+Exception in thread "Thread-94" org.opentest4j.AssertionFailedError: ❌ Collision hoặc lỗi thread: WAIT
+	at org.junit.jupiter.api.AssertionUtils.fail(AssertionUtils.java:38)
+	at org.junit.jupiter.api.Assertions.fail(Assertions.java:134)
+	at ConcurrencyTest$1.run(ConcurrencyTest.java:42)
+	at java.base/java.lang.Thread.run(Thread.java:842)
+Exception in thread "Thread-84" org.opentest4j.AssertionFailedError: ❌ Collision hoặc lỗi thread: WAIT
+	at org.junit.jupiter.api.AssertionUtils.fail(AssertionUtils.java:38)
+	at org.junit.jupiter.api.Assertions.fail(Assertions.java:134)
+	at ConcurrencyTest$1.run(ConcurrencyTest.java:42)
+	at java.base/java.lang.Thread.run(Thread.java:842)
+Exception in thread "Thread-49" org.opentest4j.AssertionFailedError: ❌ Collision hoặc lỗi thread: WAIT
+	at org.junit.jupiter.api.AssertionUtils.fail(AssertionUtils.java:38)
+	at org.junit.jupiter.api.Assertions.fail(Assertions.java:134)
+	at ConcurrencyTest$1.run(ConcurrencyTest.java:42)
+	at java.base/java.lang.Thread.run(Thread.java:842)
+Exception in thread "Thread-88" org.opentest4j.AssertionFailedError: ❌ Collision hoặc lỗi thread: WAIT
+	at org.junit.jupiter.api.AssertionUtils.fail(AssertionUtils.java:38)
+	at org.junit.jupiter.api.Assertions.fail(Assertions.java:134)
+	at ConcurrencyTest$1.run(ConcurrencyTest.java:42)
+	at java.base/java.lang.Thread.run(Thread.java:842)
+Exception in thread "Thread-83" org.opentest4j.AssertionFailedError: ❌ Collision hoặc lỗi thread: WAIT
+	at org.junit.jupiter.api.AssertionUtils.fail(AssertionUtils.java:38)
+	at org.junit.jupiter.api.Assertions.fail(Assertions.java:134)
+	at ConcurrencyTest$1.run(ConcurrencyTest.java:42)
+	at java.base/java.lang.Thread.run(Thread.java:842)
+Exception in thread "Thread-86" org.opentest4j.AssertionFailedError: ❌ Collision hoặc lỗi thread: WAIT
+	at org.junit.jupiter.api.AssertionUtils.fail(AssertionUtils.java:38)
+	at org.junit.jupiter.api.Assertions.fail(Assertions.java:134)
+	at ConcurrencyTest$1.run(ConcurrencyTest.java:42)
+	at java.base/java.lang.Thread.run(Thread.java:842)
+Exception in thread "Thread-89" org.opentest4j.AssertionFailedError: ❌ Collision hoặc lỗi thread: WAIT
+	at org.junit.jupiter.api.AssertionUtils.fail(AssertionUtils.java:38)
+	at org.junit.jupiter.api.Assertions.fail(Assertions.java:134)
+	at ConcurrencyTest$1.run(ConcurrencyTest.java:42)
+	at java.base/java.lang.Thread.run(Thread.java:842)
+Exception in thread "Thread-93" org.opentest4j.AssertionFailedError: ❌ Collision hoặc lỗi thread: WAIT
+	at org.junit.jupiter.api.AssertionUtils.fail(AssertionUtils.java:38)
+	at org.junit.jupiter.api.Assertions.fail(Assertions.java:134)
+	at ConcurrencyTest$1.run(ConcurrencyTest.java:42)
+	at java.base/java.lang.Thread.run(Thread.java:842)
+Exception in thread "Thread-92" org.opentest4j.AssertionFailedError: ❌ Collision hoặc lỗi thread: WAIT
+	at org.junit.jupiter.api.AssertionUtils.fail(AssertionUtils.java:38)
+	at org.junit.jupiter.api.Assertions.fail(Assertions.java:134)
+	at ConcurrencyTest$1.run(ConcurrencyTest.java:42)
+	at java.base/java.lang.Thread.run(Thread.java:842)
+Exception in thread "Thread-97" org.opentest4j.AssertionFailedError: ❌ Collision hoặc lỗi thread: WAIT
+	at org.junit.jupiter.api.AssertionUtils.fail(AssertionUtils.java:38)
+	at org.junit.jupiter.api.Assertions.fail(Assertions.java:134)
+	at ConcurrencyTest$1.run(ConcurrencyTest.java:42)
+	at java.base/java.lang.Thread.run(Thread.java:842)
+Exception in thread "Thread-91" org.opentest4j.AssertionFailedError: ❌ Collision hoặc lỗi thread: WAIT
+	at org.junit.jupiter.api.AssertionUtils.fail(AssertionUtils.java:38)
+	at org.junit.jupiter.api.Assertions.fail(Assertions.java:134)
+	at ConcurrencyTest$1.run(ConcurrencyTest.java:42)
+	at java.base/java.lang.Thread.run(Thread.java:842)
+Exception in thread "Thread-95" org.opentest4j.AssertionFailedError: ❌ Collision hoặc lỗi thread: WAIT
+	at org.junit.jupiter.api.AssertionUtils.fail(AssertionUtils.java:38)
+	at org.junit.jupiter.api.Assertions.fail(Assertions.java:134)
+	at ConcurrencyTest$1.run(ConcurrencyTest.java:42)
+	at java.base/java.lang.Thread.run(Thread.java:842)
+Exception in thread "Thread-96" org.opentest4j.AssertionFailedError: ❌ Collision hoặc lỗi thread: WAIT
+	at org.junit.jupiter.api.AssertionUtils.fail(AssertionUtils.java:38)
+	at org.junit.jupiter.api.Assertions.fail(Assertions.java:134)
+	at ConcurrencyTest$1.run(ConcurrencyTest.java:42)
+	at java.base/java.lang.Thread.run(Thread.java:842)
+Exception in thread "Thread-36" org.opentest4j.AssertionFailedError: ❌ Collision hoặc lỗi thread: WAIT
+	at org.junit.jupiter.api.AssertionUtils.fail(AssertionUtils.java:38)
+	at org.junit.jupiter.api.Assertions.fail(Assertions.java:134)
+	at ConcurrencyTest$1.run(ConcurrencyTest.java:42)
+	at java.base/java.lang.Thread.run(Thread.java:842)
+Exception in thread "Thread-87" org.opentest4j.AssertionFailedError: ❌ Collision hoặc lỗi thread: WAIT
+	at org.junit.jupiter.api.AssertionUtils.fail(AssertionUtils.java:38)
+	at org.junit.jupiter.api.Assertions.fail(Assertions.java:134)
+	at ConcurrencyTest$1.run(ConcurrencyTest.java:42)
+	at java.base/java.lang.Thread.run(Thread.java:842)
+Exception in thread "Thread-34" org.opentest4j.AssertionFailedError: ❌ Collision hoặc lỗi thread: WAIT
+	at org.junit.jupiter.api.AssertionUtils.fail(AssertionUtils.java:38)
+	at org.junit.jupiter.api.Assertions.fail(Assertions.java:134)
+	at ConcurrencyTest$1.run(ConcurrencyTest.java:42)
+	at java.base/java.lang.Thread.run(Thread.java:842)
+Exception in thread "Thread-33" org.opentest4j.AssertionFailedError: ❌ Collision hoặc lỗi thread: WAIT
+	at org.junit.jupiter.api.AssertionUtils.fail(AssertionUtils.java:38)
+	at org.junit.jupiter.api.Assertions.fail(Assertions.java:134)
+	at ConcurrencyTest$1.run(ConcurrencyTest.java:42)
+	at java.base/java.lang.Thread.run(Thread.java:842)
+Exception in thread "Thread-32" org.opentest4j.AssertionFailedError: ❌ Collision hoặc lỗi thread: WAIT
+	at org.junit.jupiter.api.AssertionUtils.fail(AssertionUtils.java:38)
+	at org.junit.jupiter.api.Assertions.fail(Assertions.java:134)
+	at ConcurrencyTest$1.run(ConcurrencyTest.java:42)
+	at java.base/java.lang.Thread.run(Thread.java:842)
+Exception in thread "Thread-40" org.opentest4j.AssertionFailedError: ❌ Collision hoặc lỗi thread: WAIT
+	at org.junit.jupiter.api.AssertionUtils.fail(AssertionUtils.java:38)
+	at org.junit.jupiter.api.Assertions.fail(Assertions.java:134)
+	at ConcurrencyTest$1.run(ConcurrencyTest.java:42)
+	at java.base/java.lang.Thread.run(Thread.java:842)
+Exception in thread "Thread-99" org.opentest4j.AssertionFailedError: ❌ Collision hoặc lỗi thread: WAIT
+	at org.junit.jupiter.api.AssertionUtils.fail(AssertionUtils.java:38)
+	at org.junit.jupiter.api.Assertions.fail(Assertions.java:134)
+	at ConcurrencyTest$1.run(ConcurrencyTest.java:42)
+	at java.base/java.lang.Thread.run(Thread.java:842)
+Exception in thread "Thread-10" org.opentest4j.AssertionFailedError: ❌ Collision hoặc lỗi thread: WAIT
+	at org.junit.jupiter.api.AssertionUtils.fail(AssertionUtils.java:38)
+	at org.junit.jupiter.api.Assertions.fail(Assertions.java:134)
+	at ConcurrencyTest$1.run(ConcurrencyTest.java:42)
+	at java.base/java.lang.Thread.run(Thread.java:842)
+Exception in thread "Thread-43" org.opentest4j.AssertionFailedError: ❌ Collision hoặc lỗi thread: WAIT
+	at org.junit.jupiter.api.AssertionUtils.fail(AssertionUtils.java:38)
+	at org.junit.jupiter.api.Assertions.fail(Assertions.java:134)
+	at ConcurrencyTest$1.run(ConcurrencyTest.java:42)
+	at java.base/java.lang.Thread.run(Thread.java:842)
+Exception in thread "Thread-41" org.opentest4j.AssertionFailedError: ❌ Collision hoặc lỗi thread: WAIT
+	at org.junit.jupiter.api.AssertionUtils.fail(AssertionUtils.java:38)
+	at org.junit.jupiter.api.Assertions.fail(Assertions.java:134)
+	at ConcurrencyTest$1.run(ConcurrencyTest.java:42)
+	at java.base/java.lang.Thread.run(Thread.java:842)
+Exception in thread "Thread-44" org.opentest4j.AssertionFailedError: ❌ Collision hoặc lỗi thread: WAIT
+	at org.junit.jupiter.api.AssertionUtils.fail(AssertionUtils.java:38)
+	at org.junit.jupiter.api.Assertions.fail(Assertions.java:134)
+	at ConcurrencyTest$1.run(ConcurrencyTest.java:42)
+	at java.base/java.lang.Thread.run(Thread.java:842)
+Exception in thread "Thread-13" org.opentest4j.AssertionFailedError: ❌ Collision hoặc lỗi thread: WAIT
+	at org.junit.jupiter.api.AssertionUtils.fail(AssertionUtils.java:38)
+	at org.junit.jupiter.api.Assertions.fail(Assertions.java:134)
+	at ConcurrencyTest$1.run(ConcurrencyTest.java:42)
+	at java.base/java.lang.Thread.run(Thread.java:842)
+Exception in thread "Thread-4" org.opentest4j.AssertionFailedError: ❌ Collision hoặc lỗi thread: WAIT
+	at org.junit.jupiter.api.AssertionUtils.fail(AssertionUtils.java:38)
+	at org.junit.jupiter.api.Assertions.fail(Assertions.java:134)
+	at ConcurrencyTest$1.run(ConcurrencyTest.java:42)
+	at java.base/java.lang.Thread.run(Thread.java:842)
+Exception in thread "Thread-46" org.opentest4j.AssertionFailedError: ❌ Collision hoặc lỗi thread: WAIT
+	at org.junit.jupiter.api.AssertionUtils.fail(AssertionUtils.java:38)
+	at org.junit.jupiter.api.Assertions.fail(Assertions.java:134)
+	at ConcurrencyTest$1.run(ConcurrencyTest.java:42)
+	at java.base/java.lang.Thread.run(Thread.java:842)
+Exception in thread "Thread-47" org.opentest4j.AssertionFailedError: ❌ Collision hoặc lỗi thread: WAIT
+	at org.junit.jupiter.api.AssertionUtils.fail(AssertionUtils.java:38)
+	at org.junit.jupiter.api.Assertions.fail(Assertions.java:134)
+	at ConcurrencyTest$1.run(ConcurrencyTest.java:42)
+	at java.base/java.lang.Thread.run(Thread.java:842)
+Exception in thread "Thread-17" org.opentest4j.AssertionFailedError: ❌ Collision hoặc lỗi thread: WAIT
+	at org.junit.jupiter.api.AssertionUtils.fail(AssertionUtils.java:38)
+	at org.junit.jupiter.api.Assertions.fail(Assertions.java:134)
+	at ConcurrencyTest$1.run(ConcurrencyTest.java:42)
+	at java.base/java.lang.Thread.run(Thread.java:842)
+Exception in thread "Thread-48" org.opentest4j.AssertionFailedError: ❌ Collision hoặc lỗi thread: WAIT
+	at org.junit.jupiter.api.AssertionUtils.fail(AssertionUtils.java:38)
+	at org.junit.jupiter.api.Assertions.fail(Assertions.java:134)
+	at ConcurrencyTest$1.run(ConcurrencyTest.java:42)
+	at java.base/java.lang.Thread.run(Thread.java:842)
+Exception in thread "Thread-50" org.opentest4j.AssertionFailedError: ❌ Collision hoặc lỗi thread: WAIT
+	at org.junit.jupiter.api.AssertionUtils.fail(AssertionUtils.java:38)
+	at org.junit.jupiter.api.Assertions.fail(Assertions.java:134)
+	at ConcurrencyTest$1.run(ConcurrencyTest.java:42)
+	at java.base/java.lang.Thread.run(Thread.java:842)
+Exception in thread "Thread-51" org.opentest4j.AssertionFailedError: ❌ Collision hoặc lỗi thread: WAIT
+	at org.junit.jupiter.api.AssertionUtils.fail(AssertionUtils.java:38)
+	at org.junit.jupiter.api.Assertions.fail(Assertions.java:134)
+	at ConcurrencyTest$1.run(ConcurrencyTest.java:42)
+	at java.base/java.lang.Thread.run(Thread.java:842)
+Exception in thread "Thread-45" org.opentest4j.AssertionFailedError: ❌ Collision hoặc lỗi thread: WAIT
+	at org.junit.jupiter.api.AssertionUtils.fail(AssertionUtils.java:38)
+	at org.junit.jupiter.api.Assertions.fail(Assertions.java:134)
+	at ConcurrencyTest$1.run(ConcurrencyTest.java:42)
+	at java.base/java.lang.Thread.run(Thread.java:842)
+Exception in thread "Thread-52" org.opentest4j.AssertionFailedError: ❌ Collision hoặc lỗi thread: WAIT
+	at org.junit.jupiter.api.AssertionUtils.fail(AssertionUtils.java:38)
+	at org.junit.jupiter.api.Assertions.fail(Assertions.java:134)
+	at ConcurrencyTest$1.run(ConcurrencyTest.java:42)
+	at java.base/java.lang.Thread.run(Thread.java:842)
+Exception in thread "Thread-53" org.opentest4j.AssertionFailedError: ❌ Collision hoặc lỗi thread: WAIT
+	at org.junit.jupiter.api.AssertionUtils.fail(AssertionUtils.java:38)
+	at org.junit.jupiter.api.Assertions.fail(Assertions.java:134)
+	at ConcurrencyTest$1.run(ConcurrencyTest.java:42)
+	at java.base/java.lang.Thread.run(Thread.java:842)
+Exception in thread "Thread-15" org.opentest4j.AssertionFailedError: ❌ Collision hoặc lỗi thread: WAIT
+	at org.junit.jupiter.api.AssertionUtils.fail(AssertionUtils.java:38)
+	at org.junit.jupiter.api.Assertions.fail(Assertions.java:134)
+	at ConcurrencyTest$1.run(ConcurrencyTest.java:42)
+	at java.base/java.lang.Thread.run(Thread.java:842)
+Exception in thread "Thread-57" org.opentest4j.AssertionFailedError: ❌ Collision hoặc lỗi thread: WAIT
+	at org.junit.jupiter.api.AssertionUtils.fail(AssertionUtils.java:38)
+	at org.junit.jupiter.api.Assertions.fail(Assertions.java:134)
+	at ConcurrencyTest$1.run(ConcurrencyTest.java:42)
+	at java.base/java.lang.Thread.run(Thread.java:842)
+Exception in thread "Thread-58" org.opentest4j.AssertionFailedError: ❌ Collision hoặc lỗi thread: WAIT
+	at org.junit.jupiter.api.AssertionUtils.fail(AssertionUtils.java:38)
+	at org.junit.jupiter.api.Assertions.fail(Assertions.java:134)
+	at ConcurrencyTest$1.run(ConcurrencyTest.java:42)
+	at java.base/java.lang.Thread.run(Thread.java:842)
+Exception in thread "Thread-9" org.opentest4j.AssertionFailedError: ❌ Collision hoặc lỗi thread: WAIT
+	at org.junit.jupiter.api.AssertionUtils.fail(AssertionUtils.java:38)
+	at org.junit.jupiter.api.Assertions.fail(Assertions.java:134)
+	at ConcurrencyTest$1.run(ConcurrencyTest.java:42)
+	at java.base/java.lang.Thread.run(Thread.java:842)
+Exception in thread "Thread-23" org.opentest4j.AssertionFailedError: ❌ Collision hoặc lỗi thread: WAIT
+	at org.junit.jupiter.api.AssertionUtils.fail(AssertionUtils.java:38)
+	at org.junit.jupiter.api.Assertions.fail(Assertions.java:134)
+	at ConcurrencyTest$1.run(ConcurrencyTest.java:42)
+	at java.base/java.lang.Thread.run(Thread.java:842)
+Exception in thread "Thread-56" org.opentest4j.AssertionFailedError: ❌ Collision hoặc lỗi thread: WAIT
+	at org.junit.jupiter.api.AssertionUtils.fail(AssertionUtils.java:38)
+	at org.junit.jupiter.api.Assertions.fail(Assertions.java:134)
+	at ConcurrencyTest$1.run(ConcurrencyTest.java:42)
+	at java.base/java.lang.Thread.run(Thread.java:842)
+Exception in thread "Thread-63" org.opentest4j.AssertionFailedError: ❌ Collision hoặc lỗi thread: WAIT
+	at org.junit.jupiter.api.AssertionUtils.fail(AssertionUtils.java:38)
+	at org.junit.jupiter.api.Assertions.fail(Assertions.java:134)
+	at ConcurrencyTest$1.run(ConcurrencyTest.java:42)
+	at java.base/java.lang.Thread.run(Thread.java:842)
+Exception in thread "Thread-64" org.opentest4j.AssertionFailedError: ❌ Collision hoặc lỗi thread: WAIT
+	at org.junit.jupiter.api.AssertionUtils.fail(AssertionUtils.java:38)
+	at org.junit.jupiter.api.Assertions.fail(Assertions.java:134)
+	at ConcurrencyTest$1.run(ConcurrencyTest.java:42)
+	at java.base/java.lang.Thread.run(Thread.java:842)
+Exception in thread "Thread-65" org.opentest4j.AssertionFailedError: ❌ Collision hoặc lỗi thread: WAIT
+	at org.junit.jupiter.api.AssertionUtils.fail(AssertionUtils.java:38)
+	at org.junit.jupiter.api.Assertions.fail(Assertions.java:134)
+	at ConcurrencyTest$1.run(ConcurrencyTest.java:42)
+	at java.base/java.lang.Thread.run(Thread.java:842)
+Exception in thread "Thread-66" org.opentest4j.AssertionFailedError: ❌ Collision hoặc lỗi thread: WAIT
+	at org.junit.jupiter.api.AssertionUtils.fail(AssertionUtils.java:38)
+	at org.junit.jupiter.api.Assertions.fail(Assertions.java:134)
+	at ConcurrencyTest$1.run(ConcurrencyTest.java:42)
+	at java.base/java.lang.Thread.run(Thread.java:842)
+Exception in thread "Thread-67" org.opentest4j.AssertionFailedError: ❌ Collision hoặc lỗi thread: WAIT
+	at org.junit.jupiter.api.AssertionUtils.fail(AssertionUtils.java:38)
+	at org.junit.jupiter.api.Assertions.fail(Assertions.java:134)
+	at ConcurrencyTest$1.run(ConcurrencyTest.java:42)
+	at java.base/java.lang.Thread.run(Thread.java:842)
+Exception in thread "Thread-30" org.opentest4j.AssertionFailedError: ❌ Collision hoặc lỗi thread: WAIT
+	at org.junit.jupiter.api.AssertionUtils.fail(AssertionUtils.java:38)
+	at org.junit.jupiter.api.Assertions.fail(Assertions.java:134)
+	at ConcurrencyTest$1.run(ConcurrencyTest.java:42)
+	at java.base/java.lang.Thread.run(Thread.java:842)
+Exception in thread "Thread-69" org.opentest4j.AssertionFailedError: ❌ Collision hoặc lỗi thread: WAIT
+	at org.junit.jupiter.api.AssertionUtils.fail(AssertionUtils.java:38)
+	at org.junit.jupiter.api.Assertions.fail(Assertions.java:134)
+	at ConcurrencyTest$1.run(ConcurrencyTest.java:42)
+	at java.base/java.lang.Thread.run(Thread.java:842)
+Exception in thread "Thread-70" org.opentest4j.AssertionFailedError: ❌ Collision hoặc lỗi thread: WAIT
+	at org.junit.jupiter.api.AssertionUtils.fail(AssertionUtils.java:38)
+	at org.junit.jupiter.api.Assertions.fail(Assertions.java:134)
+	at ConcurrencyTest$1.run(ConcurrencyTest.java:42)
+	at java.base/java.lang.Thread.run(Thread.java:842)
+Exception in thread "Thread-71" org.opentest4j.AssertionFailedError: ❌ Collision hoặc lỗi thread: WAIT
+	at org.junit.jupiter.api.AssertionUtils.fail(AssertionUtils.java:38)
+	at org.junit.jupiter.api.Assertions.fail(Assertions.java:134)
+	at ConcurrencyTest$1.run(ConcurrencyTest.java:42)
+	at java.base/java.lang.Thread.run(Thread.java:842)
+Exception in thread "Thread-72" org.opentest4j.AssertionFailedError: ❌ Collision hoặc lỗi thread: WAIT
+	at org.junit.jupiter.api.AssertionUtils.fail(AssertionUtils.java:38)
+	at org.junit.jupiter.api.Assertions.fail(Assertions.java:134)
+	at ConcurrencyTest$1.run(ConcurrencyTest.java:42)
+	at java.base/java.lang.Thread.run(Thread.java:842)
+Exception in thread "Thread-73" org.opentest4j.AssertionFailedError: ❌ Collision hoặc lỗi thread: WAIT
+	at org.junit.jupiter.api.AssertionUtils.fail(AssertionUtils.java:38)
+	at org.junit.jupiter.api.Assertions.fail(Assertions.java:134)
+	at ConcurrencyTest$1.run(ConcurrencyTest.java:42)
+	at java.base/java.lang.Thread.run(Thread.java:842)
+Exception in thread "Thread-75" org.opentest4j.AssertionFailedError: ❌ Collision hoặc lỗi thread: WAIT
+	at org.junit.jupiter.api.AssertionUtils.fail(AssertionUtils.java:38)
+	at org.junit.jupiter.api.Assertions.fail(Assertions.java:134)
+	at ConcurrencyTest$1.run(ConcurrencyTest.java:42)
+	at java.base/java.lang.Thread.run(Thread.java:842)
+Exception in thread "Thread-31" org.opentest4j.AssertionFailedError: ❌ Collision hoặc lỗi thread: WAIT
+	at org.junit.jupiter.api.AssertionUtils.fail(AssertionUtils.java:38)
+	at org.junit.jupiter.api.Assertions.fail(Assertions.java:134)
+	at ConcurrencyTest$1.run(ConcurrencyTest.java:42)
+	at java.base/java.lang.Thread.run(Thread.java:842)
+Exception in thread "Thread-29" org.opentest4j.AssertionFailedError: ❌ Collision hoặc lỗi thread: WAIT
+	at org.junit.jupiter.api.AssertionUtils.fail(AssertionUtils.java:38)
+	at org.junit.jupiter.api.Assertions.fail(Assertions.java:134)
+	at ConcurrencyTest$1.run(ConcurrencyTest.java:42)
+	at java.base/java.lang.Thread.run(Thread.java:842)
+Exception in thread "Thread-77" org.opentest4j.AssertionFailedError: ❌ Collision hoặc lỗi thread: WAIT
+	at org.junit.jupiter.api.AssertionUtils.fail(AssertionUtils.java:38)
+	at org.junit.jupiter.api.Assertions.fail(Assertions.java:134)
+	at ConcurrencyTest$1.run(ConcurrencyTest.java:42)
+	at java.base/java.lang.Thread.run(Thread.java:842)
+Exception in thread "Thread-78" org.opentest4j.AssertionFailedError: ❌ Collision hoặc lỗi thread: WAIT
+	at org.junit.jupiter.api.AssertionUtils.fail(AssertionUtils.java:38)
+	at org.junit.jupiter.api.Assertions.fail(Assertions.java:134)
+	at ConcurrencyTest$1.run(ConcurrencyTest.java:42)
+	at java.base/java.lang.Thread.run(Thread.java:842)
+Exception in thread "Thread-82" org.opentest4j.AssertionFailedError: ❌ Collision hoặc lỗi thread: WAIT
+	at org.junit.jupiter.api.AssertionUtils.fail(AssertionUtils.java:38)
+	at org.junit.jupiter.api.Assertions.fail(Assertions.java:134)
+	at ConcurrencyTest$1.run(ConcurrencyTest.java:42)
+	at java.base/java.lang.Thread.run(Thread.java:842)
+Exception in thread "Thread-6" org.opentest4j.AssertionFailedError: ❌ Collision hoặc lỗi thread: WAIT
+	at org.junit.jupiter.api.AssertionUtils.fail(AssertionUtils.java:38)
+	at org.junit.jupiter.api.Assertions.fail(Assertions.java:134)
+	at ConcurrencyTest$1.run(ConcurrencyTest.java:42)
+	at java.base/java.lang.Thread.run(Thread.java:842)
+Exception in thread "Thread-19" org.opentest4j.AssertionFailedError: ❌ Collision hoặc lỗi thread: WAIT
+	at org.junit.jupiter.api.AssertionUtils.fail(AssertionUtils.java:38)
+	at org.junit.jupiter.api.Assertions.fail(Assertions.java:134)
+	at ConcurrencyTest$1.run(ConcurrencyTest.java:42)
+	at java.base/java.lang.Thread.run(Thread.java:842)
+Exception in thread "Thread-3" org.opentest4j.AssertionFailedError: ❌ Collision hoặc lỗi thread: WAIT
+	at org.junit.jupiter.api.AssertionUtils.fail(AssertionUtils.java:38)
+	at org.junit.jupiter.api.Assertions.fail(Assertions.java:134)
+	at ConcurrencyTest$1.run(ConcurrencyTest.java:42)
+	at java.base/java.lang.Thread.run(Thread.java:842)
+Exception in thread "Thread-8" org.opentest4j.AssertionFailedError: ❌ Collision hoặc lỗi thread: WAIT
+	at org.junit.jupiter.api.AssertionUtils.fail(AssertionUtils.java:38)
+	at org.junit.jupiter.api.Assertions.fail(Assertions.java:134)
+	at ConcurrencyTest$1.run(ConcurrencyTest.java:42)
+	at java.base/java.lang.Thread.run(Thread.java:842)
+Exception in thread "Thread-22" org.opentest4j.AssertionFailedError: ❌ Collision hoặc lỗi thread: WAIT
+	at org.junit.jupiter.api.AssertionUtils.fail(AssertionUtils.java:38)
+	at org.junit.jupiter.api.Assertions.fail(Assertions.java:134)
+	at ConcurrencyTest$1.run(ConcurrencyTest.java:42)
+	at java.base/java.lang.Thread.run(Thread.java:842)
+Exception in thread "Thread-26" org.opentest4j.AssertionFailedError: ❌ Collision hoặc lỗi thread: WAIT
+	at org.junit.jupiter.api.AssertionUtils.fail(AssertionUtils.java:38)
+	at org.junit.jupiter.api.Assertions.fail(Assertions.java:134)
+	at ConcurrencyTest$1.run(ConcurrencyTest.java:42)
+	at java.base/java.lang.Thread.run(Thread.java:842)
+Exception in thread "Thread-28" org.opentest4j.AssertionFailedError: ❌ Collision hoặc lỗi thread: WAIT
+	at org.junit.jupiter.api.AssertionUtils.fail(AssertionUtils.java:38)
+	at org.junit.jupiter.api.Assertions.fail(Assertions.java:134)
+	at ConcurrencyTest$1.run(ConcurrencyTest.java:42)
+	at java.base/java.lang.Thread.run(Thread.java:842)
+Exception in thread "Thread-11" org.opentest4j.AssertionFailedError: ❌ Collision hoặc lỗi thread: WAIT
+	at org.junit.jupiter.api.AssertionUtils.fail(AssertionUtils.java:38)
+	at org.junit.jupiter.api.Assertions.fail(Assertions.java:134)
+	at ConcurrencyTest$1.run(ConcurrencyTest.java:42)
+	at java.base/java.lang.Thread.run(Thread.java:842)
+Exception in thread "Thread-16" org.opentest4j.AssertionFailedError: ❌ Collision hoặc lỗi thread: WAIT
+	at org.junit.jupiter.api.AssertionUtils.fail(AssertionUtils.java:38)
+	at org.junit.jupiter.api.Assertions.fail(Assertions.java:134)
+	at ConcurrencyTest$1.run(ConcurrencyTest.java:42)
+	at java.base/java.lang.Thread.run(Thread.java:842)
+Exception in thread "Thread-14" org.opentest4j.AssertionFailedError: ❌ Collision hoặc lỗi thread: WAIT
+	at org.junit.jupiter.api.AssertionUtils.fail(AssertionUtils.java:38)
+	at org.junit.jupiter.api.Assertions.fail(Assertions.java:134)
+	at ConcurrencyTest$1.run(ConcurrencyTest.java:42)
+	at java.base/java.lang.Thread.run(Thread.java:842)
+Exception in thread "Thread-18" org.opentest4j.AssertionFailedError: ❌ Collision hoặc lỗi thread: WAIT
+	at org.junit.jupiter.api.AssertionUtils.fail(AssertionUtils.java:38)
+	at org.junit.jupiter.api.Assertions.fail(Assertions.java:134)
+	at ConcurrencyTest$1.run(ConcurrencyTest.java:42)
+	at java.base/java.lang.Thread.run(Thread.java:842)
+Exception in thread "Thread-20" org.opentest4j.AssertionFailedError: ❌ Collision hoặc lỗi thread: WAIT
+	at org.junit.jupiter.api.AssertionUtils.fail(AssertionUtils.java:38)
+	at org.junit.jupiter.api.Assertions.fail(Assertions.java:134)
+	at ConcurrencyTest$1.run(ConcurrencyTest.java:42)
+	at java.base/java.lang.Thread.run(Thread.java:842)
+Exception in thread "Thread-21" org.opentest4j.AssertionFailedError: ❌ Collision hoặc lỗi thread: WAIT
+	at org.junit.jupiter.api.AssertionUtils.fail(AssertionUtils.java:38)
+	at org.junit.jupiter.api.Assertions.fail(Assertions.java:134)
+	at ConcurrencyTest$1.run(ConcurrencyTest.java:42)
+	at java.base/java.lang.Thread.run(Thread.java:842)
+Exception in thread "Thread-55" org.opentest4j.AssertionFailedError: ❌ Collision hoặc lỗi thread: WAIT
+	at org.junit.jupiter.api.AssertionUtils.fail(AssertionUtils.java:38)
+	at org.junit.jupiter.api.Assertions.fail(Assertions.java:134)
+	at ConcurrencyTest$1.run(ConcurrencyTest.java:42)
+	at java.base/java.lang.Thread.run(Thread.java:842)
+Exception in thread "Thread-24" org.opentest4j.AssertionFailedError: ❌ Collision hoặc lỗi thread: WAIT
+	at org.junit.jupiter.api.AssertionUtils.fail(AssertionUtils.java:38)
+	at org.junit.jupiter.api.Assertions.fail(Assertions.java:134)
+	at ConcurrencyTest$1.run(ConcurrencyTest.java:42)
+	at java.base/java.lang.Thread.run(Thread.java:842)
+Exception in thread "Thread-60" org.opentest4j.AssertionFailedError: ❌ Collision hoặc lỗi thread: WAIT
+	at org.junit.jupiter.api.AssertionUtils.fail(AssertionUtils.java:38)
+	at org.junit.jupiter.api.Assertions.fail(Assertions.java:134)
+	at ConcurrencyTest$1.run(ConcurrencyTest.java:42)
+	at java.base/java.lang.Thread.run(Thread.java:842)
+Exception in thread "Thread-7" org.opentest4j.AssertionFailedError: ❌ Collision hoặc lỗi thread: WAIT
+	at org.junit.jupiter.api.AssertionUtils.fail(AssertionUtils.java:38)
+	at org.junit.jupiter.api.Assertions.fail(Assertions.java:134)
+	at ConcurrencyTest$1.run(ConcurrencyTest.java:42)
+	at java.base/java.lang.Thread.run(Thread.java:842)
+Exception in thread "Thread-27" org.opentest4j.AssertionFailedError: ❌ Collision hoặc lỗi thread: WAIT
+	at org.junit.jupiter.api.AssertionUtils.fail(AssertionUtils.java:38)
+	at org.junit.jupiter.api.Assertions.fail(Assertions.java:134)
+	at ConcurrencyTest$1.run(ConcurrencyTest.java:42)
+	at java.base/java.lang.Thread.run(Thread.java:842)
+Exception in thread "Thread-68" org.opentest4j.AssertionFailedError: ❌ Collision hoặc lỗi thread: WAIT
+	at org.junit.jupiter.api.AssertionUtils.fail(AssertionUtils.java:38)
+	at org.junit.jupiter.api.Assertions.fail(Assertions.java:134)
+	at ConcurrencyTest$1.run(ConcurrencyTest.java:42)
+	at java.base/java.lang.Thread.run(Thread.java:842)
+Exception in thread "Thread-74" org.opentest4j.AssertionFailedError: ❌ Collision hoặc lỗi thread: WAIT
+	at org.junit.jupiter.api.AssertionUtils.fail(AssertionUtils.java:38)
+	at org.junit.jupiter.api.Assertions.fail(Assertions.java:134)
+	at ConcurrencyTest$1.run(ConcurrencyTest.java:42)
+	at java.base/java.lang.Thread.run(Thread.java:842)
+Exception in thread "Thread-76" org.opentest4j.AssertionFailedError: ❌ Collision hoặc lỗi thread: WAIT
+	at org.junit.jupiter.api.AssertionUtils.fail(AssertionUtils.java:38)
+	at org.junit.jupiter.api.Assertions.fail(Assertions.java:134)
+	at ConcurrencyTest$1.run(ConcurrencyTest.java:42)
+	at java.base/java.lang.Thread.run(Thread.java:842)
+Exception in thread "Thread-12" org.opentest4j.AssertionFailedError: ❌ Collision hoặc lỗi thread: WAIT
+	at org.junit.jupiter.api.AssertionUtils.fail(AssertionUtils.java:38)
+	at org.junit.jupiter.api.Assertions.fail(Assertions.java:134)
+	at ConcurrencyTest$1.run(ConcurrencyTest.java:42)
+	at java.base/java.lang.Thread.run(Thread.java:842)
+Exception in thread "Thread-37" org.opentest4j.AssertionFailedError: ❌ Collision hoặc lỗi thread: WAIT
+	at org.junit.jupiter.api.AssertionUtils.fail(AssertionUtils.java:38)
+	at org.junit.jupiter.api.Assertions.fail(Assertions.java:134)
+	at ConcurrencyTest$1.run(ConcurrencyTest.java:42)
+	at java.base/java.lang.Thread.run(Thread.java:842)
+Exception in thread "Thread-38" org.opentest4j.AssertionFailedError: ❌ Collision hoặc lỗi thread: WAIT
+	at org.junit.jupiter.api.AssertionUtils.fail(AssertionUtils.java:38)
+	at org.junit.jupiter.api.Assertions.fail(Assertions.java:134)
+	at ConcurrencyTest$1.run(ConcurrencyTest.java:42)
+	at java.base/java.lang.Thread.run(Thread.java:842)
+]]></system-err>
+</testsuite>

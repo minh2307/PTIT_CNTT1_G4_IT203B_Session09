@@ -6,11 +6,9 @@ import org.example.pattern.factory.VehicleFactory;
 
 public class Main {
 
-    private static final int MAX_CYCLES = 10; // 🔥 số lần lặp đèn
-
     public static void main(String[] args) {
 
-        System.out.println("===== MÔ PHỎNG GIAO THÔNG (CÓ GIỚI HẠN) =====");
+        System.out.println("===== MÔ PHỎNG GIAO THÔNG =====");
 
         Intersection intersection = new Intersection();
 
@@ -18,15 +16,16 @@ public class Main {
         Thread trafficThread = new Thread(() -> {
             System.out.println("🚦 Đèn giao thông bắt đầu...");
 
-            for (int i = 1; i <= MAX_CYCLES; i++) {
-                System.out.println("\n🔄 Chu kỳ đèn #" + i);
-
-                intersection.start(); // 1 vòng state (GREEN → YELLOW → RED)
+            try {
+                while (!Thread.currentThread().isInterrupted()) {
+                    intersection.start(); // mỗi lần = 1 state (GREEN → YELLOW → RED)
+                }
+            } catch (Exception e) {
+                System.out.println("🚦 Đèn giao thông dừng!");
             }
-
-            System.out.println("🛑 Đèn giao thông đã dừng!");
         });
 
+        trafficThread.setDaemon(true);
         trafficThread.start();
 
         // ================= 🚗 VEHICLE GENERATOR =================
@@ -34,15 +33,19 @@ public class Main {
             try {
                 while (!Thread.currentThread().isInterrupted()) {
 
-                    Thread.sleep(1000);
+                    Thread.sleep(2000);
 
                     Vehicle v = VehicleFactory.createVehicle(intersection);
+
+                    System.out.println("🚘 Tạo " + v.getName());
+
                     intersection.registerObserver(v);
 
                     new Thread(v).start();
                 }
             } catch (InterruptedException e) {
                 Thread.currentThread().interrupt();
+                System.out.println("🚘 Dừng tạo xe");
             }
         });
 
@@ -69,17 +72,18 @@ public class Main {
         monitor.setDaemon(true);
         monitor.start();
 
-        // ================= ⏳ CHỜ ĐÈN CHẠY XONG =================
+        // ================= ⏳ CHẠY 30 GIÂY =================
         try {
-            trafficThread.join(); // đợi đèn chạy xong
+            Thread.sleep(30000); // chạy 30s
         } catch (InterruptedException e) {
             Thread.currentThread().interrupt();
         }
 
-        // ================= 🛑 DỪNG HỆ THỐNG =================
-        System.out.println("🚨 Dừng tạo xe...");
+        // ================= 🛑 STOP =================
+        System.out.println("🚨 Dừng hệ thống...");
 
-        generator.interrupt(); // dừng sinh xe
+        generator.interrupt();
+        trafficThread.interrupt();
 
         System.out.println("===== KẾT THÚC MÔ PHỎNG =====");
     }

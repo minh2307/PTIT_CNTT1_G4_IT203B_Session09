@@ -1,8 +1,9 @@
 package org.example.engine;
 
-
 import org.example.entity.PriorityVehicle;
 import org.example.entity.Vehicle;
+import org.example.exception.CollisionException;
+import org.example.exception.TrafficJamException;
 import org.example.pattern.observer.Observer;
 import org.example.pattern.observer.Subject;
 import org.example.pattern.state.GreenState;
@@ -15,19 +16,18 @@ import java.util.List;
 import java.util.Queue;
 
 public class Intersection implements Subject {
+
     private int passedVehicles = 0;
-    private int trafficJamCount = 0;
-    private final int JAM_THRESHOLD = 7; // >7 xe = kẹt
+
+    private final int JAM_THRESHOLD = 7;
     private boolean isTrafficJam = false;
 
-    private TrafficLightState currentState;
+    private volatile TrafficLightState currentState;
     private final List<Observer> observers = new ArrayList<>();
 
-    // hàng đợi xe
     private final Queue<Vehicle> waitingQueue = new LinkedList<>();
 
-    // trạng thái ngã tư
-    private boolean isOccupied = false;
+    private volatile boolean isOccupied = false;
 
     public Intersection() {
         this.currentState = new GreenState();
@@ -35,10 +35,6 @@ public class Intersection implements Subject {
 
     public synchronized int getPassedVehicles() {
         return passedVehicles;
-    }
-
-    public synchronized int getTrafficJamCount() {
-        return trafficJamCount;
     }
 
     // ================= STATE =================
@@ -70,76 +66,88 @@ public class Intersection implements Subject {
     }
 
     // ================= CORE =================
-    public synchronized void requestEnter(Vehicle vehicle) {
+    public synchronized void requestEnter(Vehicle vehicle)
+            throws TrafficJamException, CollisionException {
 
+        // thêm vào queue nếu chưa có
         if (!waitingQueue.contains(vehicle)) {
             waitingQueue.add(vehicle);
         }
 
-        // 🔥 CHECK KẸT XE
-        if (waitingQueue.size() >= JAM_THRESHOLD) {
-
-            if (!isTrafficJam) {
-                isTrafficJam = true;
-                Logger.log("⚠️ KẸT XE!");
-            }
-
-        } else {
-
-            if (isTrafficJam) {
-                isTrafficJam = false;
-                Logger.log("✅ HẾT KẸT XE");
-            }
-        }
-
-        // 🚑 XE CỨU THƯƠNG
+        // ================= 🚑 PRIORITY =================
         if (vehicle instanceof PriorityVehicle) {
 
             Logger.log(vehicle.getName() + " 🚨 xin ưu tiên!");
 
-            if (!isOccupied) {
-                isOccupied = true;
-                waitingQueue.remove(vehicle);
-
-                Logger.log("🚑 " + vehicle.getName() + " VƯỢT ĐÈN 🚨");
-
-                passedVehicles++;
-                return;
+            if (isOccupied) {
+                checkTrafficJam();
+                throw new CollisionException("💥 Va chạm khi ưu tiên!");
             }
+
+            isOccupied = true;
+            waitingQueue.remove(vehicle);
+
+            Logger.log("🚑 " + vehicle.getName() + " VƯỢT ĐÈN 🚨");
+
+            passedVehicles++;
+            return;
         }
 
-        // 🚗 XE THƯỜNG
+        // ================= 🚗 NORMAL =================
         boolean isGreen = "GREEN".equals(currentState.getColor());
 
-        if (waitingQueue.peek() == vehicle && !isOccupied) {
+        boolean hasPriority = waitingQueue.stream()
+                .anyMatch(v -> v instanceof PriorityVehicle);
 
-            if (isGreen || vehicle instanceof PriorityVehicle) {
-                isOccupied = true;
-                waitingQueue.poll();
+        if (!hasPriority && waitingQueue.peek() == vehicle && isGreen) {
 
-                Logger.log(vehicle.getName() + " đang đi qua ngã tư");
-
-                passedVehicles++;
-                return;
+            if (isOccupied) {
+                throw new CollisionException("💥 Va chạm do lock lỗi!");
             }
+
+            isOccupied = true;
+            waitingQueue.poll();
+
+            Logger.log(vehicle.getName() + " đang đi qua ngã tư");
+
+            passedVehicles++;
+            return;
         }
 
+        // ================= WAIT =================
+        Logger.log(vehicle.getName() + " đang dừng lại...");
+        checkTrafficJam();
+
         throw new RuntimeException("WAIT");
+    }
+
+    // ================= TRAFFIC JAM =================
+    private void checkTrafficJam() throws TrafficJamException {
+
+        boolean isRed = "RED".equals(currentState.getColor());
+
+        if (waitingQueue.size() >= JAM_THRESHOLD && isRed) {
+
+            if (!isTrafficJam) {
+                isTrafficJam = true;
+                throw new TrafficJamException("⚠️ KẸT XE NGHIÊM TRỌNG!");
+            }
+
+        } else {
+            isTrafficJam = false;
+        }
     }
 
     public synchronized void leaveIntersection() {
         isOccupied = false;
     }
 
-    // 📊 dùng để monitor
     public synchronized int getWaitingSize() {
         return waitingQueue.size();
     }
 
     // ================= RUN =================
     public void start() {
-        while (true) {
-            currentState.handle(this);
-        }
+        currentState.handle(this);
     }
 }

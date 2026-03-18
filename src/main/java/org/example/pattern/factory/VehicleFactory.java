@@ -17,14 +17,14 @@ public class VehicleFactory {
         int speed;
         String id = String.valueOf(counter++);
 
-        // 🚑 30% xe cứu thương
-        if (chance < 30) {
+        // 🚑 20% xe cứu thương
+        if (chance < 10) {
             speed = 500 + random.nextInt(500); // nhanh hơn
             System.out.println("🚑 Tạo xe cứu thương #" + id);
             return new PriorityVehicle(id, speed, intersection);
         }
 
-        // 🚗 70% còn lại là xe thường (chia loại)
+        // 🚗 90% còn lại là xe thường (chia loại)
         int type = random.nextInt(3);
 
         switch (type) {

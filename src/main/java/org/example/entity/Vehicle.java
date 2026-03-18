@@ -2,8 +2,9 @@ package org.example.entity;
 
 
 import org.example.engine.Intersection;
-import org.example.pattern.observer.Observer;
+import org.example.exception.CollisionException;import org.example.exception.TrafficJamException;import org.example.pattern.observer.Observer;
 import org.example.util.Logger;
+
 
 public abstract class Vehicle implements Observer, Runnable {
 
@@ -37,42 +38,51 @@ public abstract class Vehicle implements Observer, Runnable {
         }
     }
 
+    protected boolean canGo() {
+        return "GREEN".equals(trafficLightState);
+    }
+
     @Override
     public void run() {
+
         while (true) {
             try {
-                Thread.sleep(speed);
+                intersection.requestEnter(this);
+
+                move();
+
+                Thread.sleep(1000);
+
+                intersection.leaveIntersection();
+
+                break;
+
+            } catch (TrafficJamException e) {
+                System.out.println(e.getMessage());
 
                 try {
-                    intersection.requestEnter(this);
+                    Thread.sleep(1000);
+                } catch (InterruptedException ex) {
+                    Thread.currentThread().interrupt();
+                }
 
-                    move();
+            } catch (CollisionException e) {
+                System.out.println(e.getMessage());
+                break;
 
-                    Thread.sleep(500);
-
-                    intersection.leaveIntersection();
-
-                    System.out.println(getName() + " đã rời hệ thống");
-
-                    break; // 🔥 xe biến mất
-
-                } catch (RuntimeException e) {
-
-                    // 🚑 xe cứu thương KHÔNG bị stop
-                    if (!(this instanceof PriorityVehicle)) {
-                        stop();
+            } catch (RuntimeException e) {
+                if ("WAIT".equals(e.getMessage())) {
+                    try {
+                        Thread.sleep(500);
+                    } catch (InterruptedException ex) {
+                        Thread.currentThread().interrupt();
                     }
                 }
 
             } catch (InterruptedException e) {
                 Thread.currentThread().interrupt();
-                break;
             }
         }
-    }
-
-    protected boolean canGo() {
-        return "GREEN".equals(trafficLightState);
     }
 
     public abstract String getName();
